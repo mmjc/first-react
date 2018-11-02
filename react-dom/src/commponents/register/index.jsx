@@ -5,7 +5,7 @@ import React,{Component} from 'react';
 import {NavBar,List,InputItem,Button,WingBlank,WhiteSpace,Radio} from 'antd-mobile';
 import PropTypes from 'prop-types';
 import {Redirect} from 'react-router-dom';
-import Logo from '../logo';
+import Logo from '../logo/logo.png';
 
 const Item=List.Item;
 class Register extends Component{
@@ -18,7 +18,7 @@ class Register extends Component{
   state={
     username:'',
     password:'',
-    rePassword:'',
+    repassword:'',
     type:'laoban'
   }
 
@@ -27,10 +27,10 @@ class Register extends Component{
       [name]:val
     })
   }
-  register= async ()=>{
-    const {username,rePassword,password,type}=this.state;
+  register= async()=>{
+    const {username,repassword,password,type}=this.state;
     // console.log(username,password,type);
-    this.props.register({username,password,rePassword,type});
+    this.props.register({username,password,repassword,type});
     // if(password===rePassword){
     //   const data=await reqRegister({username,password,type});
     // }else{
@@ -41,7 +41,7 @@ class Register extends Component{
   goLogin=()=>{
     this.props.history.replace('/login');
   }
-  render() {
+  render(){
     const {type}=this.state;
    const {msg,redirectTo}=this.props.user;
    console.log(msg);

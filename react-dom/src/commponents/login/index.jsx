@@ -6,7 +6,7 @@ import {NavBar,List,InputItem,Button,WingBlank,WhiteSpace} from 'antd-mobile';
 import Logo from '../logo';
 import {reqLogin} from '../../api';
 
-class Register extends Component{
+class Login extends Component{
   state={
     username:'',
     password:''
@@ -59,4 +59,4 @@ class Register extends Component{
     )
   }
 }
-export default Register;
+export default Login;
