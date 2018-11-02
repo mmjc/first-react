@@ -10,7 +10,7 @@ const app =express();
   await db;
   app.use(router);
 })()
-app.listen(4000,function (err) {
+app.listen(4000, err=> {
   if(!err){
     console.log('启动了')
   }else{
