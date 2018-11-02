@@ -9,6 +9,8 @@ import Register from './commponents/register';
 import Main from './commponents/main';
 import store from './redux/store';
 
+import './assets/less/index.less';
+
 ReactDOM.render(
   (
     <Provider store={store}>

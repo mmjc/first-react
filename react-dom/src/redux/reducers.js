@@ -3,30 +3,33 @@
  */
 
 import {combineReducers} from 'redux';
+import {ERR_MSG,AUTH_SUCCESS,UPDATE_USER,RESET_USER} from './action-types';
+import {getRedirectPath} from '../utils';
 
-const xxxState = 123;
+const initUserState = {
+  username:'',
+  type:'',
+  msg:'',
+  redirectTo:''
+}
 
-function xxx(preState = xxxState, action) {
-  switch (action.type) {
-    default :
+function user(preState = initUserState, action) {
+  switch (action.type){
+    case AUTH_SUCCESS:
+      return{username:action.data.username,type:action.data.type,msg:'',redirectTo:getRedirectPath(action.data.type,action.data.header)};
+    case ERR_MSG:
+      return{...action.data};
+    case UPDATE_USER:
+      return action.data
+    case RESET_USER:
+      return{...action.data}
+    default:
       return preState;
   }
 }
 
-const yyyState = [{}];
 
-function yyy(preState = yyyState, action) {
-  switch (action.type) {
-    default :
-      return preState;
-  }
-}
 
-//如何暴露, 合并多个reducers函数
 export default combineReducers({
-  xxx,
-  yyy
+ user
 })
-/*
-  最终向外暴露： {xxx: xxx(), yyy: yyy()}
- */
